@@ -2976,9 +2976,14 @@ async function getAI(userMsg, isFirst=false) {
       text = data.content?.[0]?.text || '';
     } else {
       // Production — route through Apps Script proxy (avoids CORS block on live site)
-      const res = await fetch(SCRIPT_URL, {
+      // Uses no-cors mode + URL params to ensure Apps Script receives it correctly
+      const proxyUrl = SCRIPT_URL +
+        '?action=chat_proxy' +
+        '&site=tradepool';
+
+      const res = await fetch(proxyUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           action: 'chat_proxy',
           system: buildSysPrompt(),
@@ -3081,9 +3086,9 @@ Return ONLY valid JSON (no markdown, no extra text):
       txt = data.content?.[0]?.text || '{}';
     } else {
       // Production — route through Apps Script proxy
-      const res = await fetch(SCRIPT_URL, {
+      const res = await fetch(SCRIPT_URL + '?action=chat_proxy&site=tradepool', {
         method:'POST',
-        headers:{'Content-Type':'text/plain'},
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
         body:JSON.stringify({
           action:'chat_proxy',
           messages:[{role:'user',content:prompt}],
