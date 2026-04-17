@@ -2882,7 +2882,7 @@ function showRegStep(id) {
 const ANTHROPIC_API = "https://api.anthropic.com/v1/messages";
 
 // ── REPLACE WITH YOUR GOOGLE APPS SCRIPT URL ──────────────
-const SCRIPT_URL = "YOUR_SCRIPT_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec";
 // ──────────────────────────────────────────────────────────
 
 const Q_AREAS = [
@@ -2960,7 +2960,7 @@ async function getAI(userMsg, isFirst=false) {
   try {
     let text = '';
 
-    if(SCRIPT_URL === 'YOUR_SCRIPT_URL_HERE') {
+    if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
       // Demo mode only — direct API call (works locally, not on live site)
       const res = await fetch(ANTHROPIC_API, {
         method:'POST',
@@ -3066,7 +3066,7 @@ Return ONLY valid JSON (no markdown, no extra text):
   try {
     let txt = '{}';
 
-    if(SCRIPT_URL === 'YOUR_SCRIPT_URL_HERE') {
+    if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
       // Demo mode — direct call (local only)
       const res = await fetch(ANTHROPIC_API, {
         method:'POST',
@@ -3250,7 +3250,7 @@ async function checkCode() {
   if(btn) { btn.textContent = 'Verifying...'; btn.disabled = true; }
 
   try {
-    if(SCRIPT_URL === 'YOUR_SCRIPT_URL_HERE') {
+    if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
       // Demo mode — accept any code 3+ chars
       await new Promise(r => setTimeout(r, 800));
       const accepted = sessionStorage.getItem('tp_terms_accepted_' + code.toUpperCase());
@@ -3294,7 +3294,7 @@ async function acceptTermsAndEnter() {
   sessionStorage.setItem('tp_terms_accepted_' + code, ts);
 
   // Log terms acceptance to backend
-  if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
@@ -3391,7 +3391,7 @@ async function submitEmployerRequest() {
   };
 
   try {
-    if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+    if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
       const res = await fetch(SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify(payload),
@@ -3614,7 +3614,7 @@ async function sendVerificationCode() {
   manageVerifiedEmail = email;
 
   try {
-    if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+    if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
       await fetch(SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify({
@@ -3658,7 +3658,7 @@ async function verifyCode() {
 }
 
 async function loadProfileForManage() {
-  if(SCRIPT_URL === 'YOUR_SCRIPT_URL_HERE') {
+  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
     // Demo — pre-fill with sample data
     document.getElementById('manage-firstname').textContent = 'Jake';
     document.getElementById('manage-phone').value = '0412 345 678';
@@ -3724,7 +3724,7 @@ async function quickUpdateStatus(status) {
   if(radio) radio.checked = true;
 
   // Save to backend
-  if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
@@ -3758,7 +3758,7 @@ async function saveProfileChanges() {
     site: 'tradepool'
   };
 
-  if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
@@ -3796,7 +3796,7 @@ async function submitRemovalRequest() {
     return;
   }
 
-  if(SCRIPT_URL !== 'YOUR_SCRIPT_URL_HERE') {
+  if(SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbw8VJIVnsiG2ETKcuc0rMKN-NE64SObFqjUfXjCaZVpmZxuVkVtiXYjPpkaIDVqNyj2bg/exec') {
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
