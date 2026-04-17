@@ -2966,7 +2966,7 @@ async function getAI(userMsg, isFirst=false) {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({
-          model:'claude-sonnet-4-20250514',
+          model:'claude-sonnet-4-5',
           max_tokens:1000,
           system: buildSysPrompt(),
           messages: msgs
@@ -3077,7 +3077,7 @@ Return ONLY valid JSON (no markdown, no extra text):
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          model:'claude-sonnet-4-20250514',
+          model:'claude-sonnet-4-5',
           max_tokens:1000,
           messages:[{role:'user',content:prompt}]
         })
